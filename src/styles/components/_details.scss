@@ -1,0 +1,21 @@
+.text-container {
+	display: flex;
+	flex-direction: column;
+	// justify-content: space-around;
+	height: 400px;
+	width: 500px;
+	padding: 50px;
+}
+
+.detail-center {
+	display: flex;
+	align-items: center;
+	height: 90vh;
+	width: 100%;
+	justify-content: center;
+	// background-color: red;
+}
+
+.detail-overview {
+	padding-top: 10px;
+}
