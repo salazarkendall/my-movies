@@ -18,7 +18,11 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 				<hr />
 				<br />
 				<span>
-					<i class="fa-solid fa-star"></i> {vote_average}
+					<i
+						className="fa-solid fa-star"
+						style={{ color: 'yellow' }}
+					></i>{' '}
+					{vote_average}
 				</span>
 				<p className="detail-overview">{overview}</p>
 				<button onClick={handleBack} className="outline-button">

@@ -32,12 +32,13 @@ export const Navbar = () => {
 					value={searchInput}
 				/>
 			</form>
-			<Link className="link" to="/movie">
-				GENRES
+			<Link className="link" to="/login">
+				LOGIN
 			</Link>
-			{/* <button className="button__login" type="button">
-				Login
-			</button> */}
+
+			<button className="float" type="button">
+				<i className="fa-solid fa-arrow-up"></i>
+			</button>
 		</div>
 	);
 };

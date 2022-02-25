@@ -1,4 +1,5 @@
 .movie {
+	animation: 0.5s ease-out 0s 1 zoomIn;
 	height: 500px;
 	transition: all 0.5s ease;
 	&:hover {
