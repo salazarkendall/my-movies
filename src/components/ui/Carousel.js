@@ -7,9 +7,9 @@ export const Carousel = ({ data, title }) => {
 			<div className="container column ">
 				<h1 className="main__title">{title}</h1>
 				<div className="container movie__container">
-					{data?.results.map((movie) => (
-						<MovieCover key={movie.id} {...movie} />
-					))}
+					{data?.results.map((movie) => {
+						return <MovieCover key={movie.id} {...movie} />;
+					})}
 				</div>
 			</div>
 		</div>
