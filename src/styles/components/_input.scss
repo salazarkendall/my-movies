@@ -28,3 +28,37 @@
 		font-family: 'Montserrat', sans-serif;
 	}
 }
+
+.form-input{
+	$main-color: $color-warning;
+	border-radius: 4px;
+	border: solid 1px rgb(42, 42, 42);
+	background-color: rgb(0, 0, 0);
+	color: whitesmoke;
+	display: flex;
+	margin: 5px 0px;
+	// min-width: 200px;
+	// width: 100px;
+	// min-width: 300px;
+	padding: 10px;
+	outline:none;
+	line-height: 20px;
+	transition: all .5s ease;
+
+	&::selection{
+		background-color: lighten($main-color, 20);
+	}
+
+	&:active, &:focus{
+		outline: solid 1px $main-color;
+	}
+
+	&::placeholder {
+		// padding-left: 5px;
+		color: rgba(255, 255, 255, 0.413);
+		font-size: 12px;
+		letter-spacing: 3px;
+		font-family: 'Montserrat', sans-serif;
+		text-transform: uppercase;
+	}
+}

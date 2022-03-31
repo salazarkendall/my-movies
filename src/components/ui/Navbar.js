@@ -1,8 +1,10 @@
+import { useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { useForm } from '../../hooks/useForm';
 
 export const Navbar = () => {
 	const navigate = useNavigate();
+	const { uid } = useSelector((state) => state.auth);
 
 	const [{ searchInput }, handleInputChange, resetInputs] = useForm({
 		searchInput: '',
@@ -17,7 +19,7 @@ export const Navbar = () => {
 	const handleBlur = () => resetInputs();
 
 	return (
-		<div className="navbar">
+		<div className="navbar animate__animated animate__fadeIn">
 			<Link className="link" to="/">
 				HOME
 			</Link>
@@ -32,9 +34,21 @@ export const Navbar = () => {
 					value={searchInput}
 				/>
 			</form>
-			<Link className="link" to="/login">
-				LOGIN
-			</Link>
+			{uid ? (
+				<Link
+					className="link"
+					to={`/profile/${uid}`}
+				>
+					PROFILE
+				</Link>
+			) : (
+				<Link
+					className="link"
+					to="/login"
+				>
+					LOGIN
+				</Link>
+			)}
 
 			<button className="float" type="button">
 				<i className="fa-solid fa-arrow-up"></i>

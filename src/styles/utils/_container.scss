@@ -15,11 +15,9 @@
 	display: flex;
 	overflow: auto;
 
-	&::-webkit-scrollbar {
-		width: 0px;
-	}
 }
 
 .column {
 	flex-direction: column;
 }
+
