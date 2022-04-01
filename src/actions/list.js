@@ -1,12 +1,12 @@
 import { addDoc, collection } from 'firebase/firestore';
 import { db } from '../firebase/firebase-config';
-import { loadUserLists } from '../helpers/listHelpers';
 import { types } from '../types/types';
 
-export const createList = (owner, list) => ({
+export const createList = (owner, list, listId) => ({
 	type: types.listCreate,
 	payload: {
 		owner,
+		listId,
 		lists: {
 			...list,
 		},
@@ -24,13 +24,8 @@ export const startCreateList = (name) => {
 		};
 
 		await addDoc(collection(db, uid), newList);
-		dispatch(createList(uid, newList));
+		dispatch(createList(uid, newList, 'abc'));
 	};
 };
 
-// export const getListsFromUser = () => {
-// 	return async (dispatch, getState) => {
-// 		const uid = getState().auth.uid;
-// 		loadUserLists(uid);
-// 	};
-// };
+export const addMovie = () => {};

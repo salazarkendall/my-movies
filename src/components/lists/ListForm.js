@@ -6,7 +6,6 @@ import { ListTable } from './ListTable';
 
 export const ListForm = () => {
 	const dispatch = useDispatch();
-	// const { uid } = useSelector((state) => state.auth);
 	const { lists } = useSelector((state) => state.list);
 
 	const [formValues, handleInputChange] = useForm({

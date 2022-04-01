@@ -11,7 +11,5 @@ export const MovieDetailScreen = () => {
 		`https://api.themoviedb.org/3/movie/${id}?api_key=b7bf52445708034ddb6908183dba78ec&language=en-US`
 	);
 
-	!loading && console.log(data.title);
-
 	return <div>{!loading && <Detail {...data} />}</div>;
 };

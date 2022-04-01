@@ -10,7 +10,6 @@ import { useSelector } from 'react-redux';
 
 export const AppRouter = () => {
 	const { uid } = useSelector((state) => state.auth);
-	console.log(uid);
 
 	return (
 		<Router>

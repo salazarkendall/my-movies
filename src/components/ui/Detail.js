@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { loadUserLists } from '../../helpers/listHelpers';
 
 export const Detail = ({ title, poster_path, overview, vote_average }) => {
 	const navigate = useNavigate();
+	const [lists, setLists] = useState([]);
 	const { uid } = useSelector((state) => state.auth);
+
+	const [selectedOption, setSelectedOption] = useState('');
 
 	const handleBack = () => navigate(-1);
 
-	const handleAdd = () => {
-		loadUserLists(uid);
-	};
+	const handleSelect = ({ target }) => setSelectedOption(target.value);
+
+	const handleAdd = () => {};
+
+	useEffect(() => {
+		loadUserLists(uid).then((myLists) => {
+			setLists(myLists);
+		});
+	}, [uid]);
 
 	return (
 		<div className="detail-center">
@@ -38,14 +47,17 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 				</button>
 				{uid ? (
 					<>
-						<select name="cars" id="cars">
+						<select name="lists" onChange={handleSelect}>
 							<option value="" selected disabled hidden>
 								Add
 							</option>
-							<option value="saab">Saab</option>
-							<option value="opel">Opel</option>
-							<option value="audi">Audi</option>
+							{lists.map((list) => (
+								<option key={list} value={list}>
+									{list}
+								</option>
+							))}
 						</select>
+
 						<button
 							onClick={handleAdd}
 							className="btn btn--success"

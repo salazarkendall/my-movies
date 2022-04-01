@@ -67,7 +67,6 @@ export const startNormalLogin = (email, password) => {
 	return (dispatch) => {
 		const auth = getAuth();
 		signInWithEmailAndPassword(auth, email, password).then(({ user }) => {
-			console.log(user.displayName);
 			dispatch(login(user.uid, user.displayName));
 		});
 	};

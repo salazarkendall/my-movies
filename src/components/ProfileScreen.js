@@ -7,7 +7,6 @@ export const ProfileScreen = () => {
 	const dispatch = useDispatch();
 
 	const handleLogout = (e) => {
-		console.log('object');
 		e.preventDefault();
 		dispatch(startLogout());
 	};
