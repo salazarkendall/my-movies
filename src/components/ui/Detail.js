@@ -1,10 +1,17 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
+import { loadUserLists } from '../../helpers/listHelpers';
 
 export const Detail = ({ title, poster_path, overview, vote_average }) => {
 	const navigate = useNavigate();
+	const { uid } = useSelector((state) => state.auth);
 
 	const handleBack = () => navigate(-1);
+
+	const handleAdd = () => {
+		loadUserLists(uid);
+	};
 
 	return (
 		<div className="detail-center">
@@ -21,7 +28,7 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 					<i
 						className="fa-solid fa-star"
 						style={{ color: 'yellow' }}
-					></i>{' '}
+					></i>
 					{vote_average}
 				</span>
 				<p className="detail-overview">{overview}</p>
@@ -29,9 +36,28 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 				<button onClick={handleBack} className="btn btn--error">
 					BACK
 				</button>
-				<button onClick={handleBack} className="btn btn--primary">
-					ADD
-				</button>
+				{uid ? (
+					<>
+						<select name="cars" id="cars">
+							<option value="" selected disabled hidden>
+								Add
+							</option>
+							<option value="saab">Saab</option>
+							<option value="opel">Opel</option>
+							<option value="audi">Audi</option>
+						</select>
+						<button
+							onClick={handleAdd}
+							className="btn btn--success"
+						>
+							ADD
+						</button>
+					</>
+				) : (
+					<button onClick={handleBack} className="btn btn--primary">
+						ADD
+					</button>
+				)}
 			</div>
 		</div>
 	);

@@ -1,15 +1,16 @@
 import { types } from '../types/types';
 
-const initState = {};
+const initState = { owner: null, lists: [] };
 
 export const listReducer = (state = initState, action) => {
 	switch (action.type) {
 		case types.listCreate:
 			return {
 				...state,
+				owner: state.owner == null ? action.payload.owner : state.owner,
+				lists: [action.payload.lists, ...state.lists],
 			};
-
 		default:
-			break;
+			return state;
 	}
 };

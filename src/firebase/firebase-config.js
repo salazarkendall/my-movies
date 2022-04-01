@@ -1,22 +1,18 @@
 import 'firebase/firestore';
 import 'firebase/auth';
-// Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { FacebookAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
-// Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyCYmLBcIMRmeCBbPyaXqvYOjhZR5h6vvDY',
-	authDomain: 'sql-demos-1d750.firebaseapp.com',
-	projectId: 'sql-demos-1d750',
-	storageBucket: 'sql-demos-1d750.appspot.com',
-	messagingSenderId: '662749292633',
-	appId: '1:662749292633:web:b1abeeb863eef4e8382948',
-	//tuinformación de tu app en firebase
+	apiKey: 'AIzaSyCssDocGaFQOJvjKsgh_gNpTu5thbGkVLg',
+	authDomain: 'my-movie-queue.firebaseapp.com',
+	projectId: 'my-movie-queue',
+	storageBucket: 'my-movie-queue.appspot.com',
+	messagingSenderId: '60116961391',
+	appId: '1:60116961391:web:04cfbb598e2d200ac8a59a',
 };
 
-// Initialize Firebase
 // eslint-disable-next-line no-unused-vars
 const app = initializeApp(firebaseConfig);
 
