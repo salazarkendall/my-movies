@@ -71,7 +71,7 @@ export const RegisterScreen = () => {
 						Create user
 					</button>
 				</form>
-				<Link to="/login" className="link">
+				<Link to="/login" className="link u-mt-2">
 					Already a member? Log in here
 				</Link>
 			</div>

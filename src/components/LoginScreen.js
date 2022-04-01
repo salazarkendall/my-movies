@@ -2,7 +2,7 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import {
-	startFacebookLogin,
+	// startFacebookLogin,
 	startGoogleLogin,
 	startNormalLogin,
 } from '../actions/auth';
@@ -22,9 +22,9 @@ export const LoginScreen = () => {
 		dispatch(startGoogleLogin());
 	};
 
-	const handleFacebookLogin = () => {
-		dispatch(startFacebookLogin());
-	};
+	// const handleFacebookLogin = () => {
+	// 	dispatch(startFacebookLogin());
+	// };
 
 	const handleNormalLogin = (e) => {
 		e.preventDefault();
@@ -72,7 +72,7 @@ export const LoginScreen = () => {
 					</button> */}
 				</form>
 
-				<Link to="/register" className="link">
+				<Link to="/register" className="link u-mt-2">
 					Create a new account instead
 				</Link>
 			</ul>

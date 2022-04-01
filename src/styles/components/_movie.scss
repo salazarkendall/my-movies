@@ -1,6 +1,8 @@
 .movie {
 	animation: 0.5s ease-out 0s 1 zoomIn;
-	height: 500px;
+	border: solid 1px rgba(41, 41, 41, 0.462);
+	border-radius: 4px;
+	height: 300px;
 	transition: all 0.5s ease;
 	&:hover {
 		transform: scale(1.1);
@@ -15,7 +17,7 @@
 }
 
 .movie__container {
-	height: 650px;
+	height: 400px;
 	&:hover .movie:not(:hover) {
 		transform: scale(0.95);
 		filter: grayscale(100%);

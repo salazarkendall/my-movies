@@ -25,8 +25,12 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 					{vote_average}
 				</span>
 				<p className="detail-overview">{overview}</p>
-				<button onClick={handleBack} className="outline-button">
+
+				<button onClick={handleBack} className="btn btn--error">
 					BACK
+				</button>
+				<button onClick={handleBack} className="btn btn--primary">
+					ADD
 				</button>
 			</div>
 		</div>
