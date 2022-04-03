@@ -8,14 +8,16 @@ export const ListForm = () => {
 	const dispatch = useDispatch();
 	const { lists } = useSelector((state) => state.list);
 
-	const [formValues, handleInputChange] = useForm({
+	const [formValues, handleInputChange, resetInputs] = useForm({
 		listName: '',
 	});
 
 	const { listName } = formValues;
 
-	// const handleCreateList = () => dispatch(createList(1, uid, listName));
-	const handleCreateList = () => dispatch(startCreateList(listName));
+	const handleCreateList = () => {
+		resetInputs();
+		dispatch(startCreateList(listName));
+	};
 
 	return (
 		<div>

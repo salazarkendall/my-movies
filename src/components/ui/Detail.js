@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { loadUserLists } from '../../helpers/listHelpers';
+import { startAddMovie } from '../../actions/list';
+import { getMovieDocument, loadUserLists } from '../../helpers/listHelpers';
 
 export const Detail = ({ title, poster_path, overview, vote_average }) => {
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const [lists, setLists] = useState([]);
 	const { uid } = useSelector((state) => state.auth);
 
@@ -12,9 +14,16 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 
 	const handleBack = () => navigate(-1);
 
-	const handleSelect = ({ target }) => setSelectedOption(target.value);
+	const handleSelect = ({ target }) => {
+		console.log(target.value);
+		setSelectedOption(target.value);
+	};
 
-	const handleAdd = () => {};
+	const handleAdd = () => {
+		// startAddMovie();
+		dispatch(startAddMovie(title, selectedOption));
+		getMovieDocument(uid, selectedOption);
+	};
 
 	useEffect(() => {
 		loadUserLists(uid).then((myLists) => {
@@ -52,8 +61,8 @@ export const Detail = ({ title, poster_path, overview, vote_average }) => {
 								Add
 							</option>
 							{lists.map((list) => (
-								<option key={list} value={list}>
-									{list}
+								<option key={list.id} value={list.id}>
+									{list.name}
 								</option>
 							))}
 						</select>

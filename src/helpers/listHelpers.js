@@ -1,4 +1,4 @@
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, doc, getDoc, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/firebase-config';
 
 export const loadUserLists = async (uid) => {
@@ -7,7 +7,13 @@ export const loadUserLists = async (uid) => {
 	const querySnapshot = await getDocs(collection(db, uid));
 	querySnapshot.forEach((doc) => {
 		const data = doc.data();
-		myLists.push(data.name);
+
+		const listData = {
+			id: doc.id,
+			name: data.name,
+		};
+
+		myLists.push(listData);
 	});
 
 	return new Promise((resolve, reject) => {
@@ -17,4 +23,8 @@ export const loadUserLists = async (uid) => {
 			reject('No lists');
 		}
 	});
+};
+
+export const getMovieDocument = async (uid, listId) => {
+	
 };

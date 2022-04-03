@@ -11,10 +11,16 @@ export const listReducer = (state = initState, action) => {
 				lists: [action.payload.lists, ...state.lists],
 			};
 		case types.movieAdd:
-		// return {
-		// 	...state,
-		// 	lists:
-		// };
+			console.log(state.lists);
+			return {
+				...state,
+				lists: [
+					state.lists
+						.find((list) => list.id === action.payload.id)
+						.push(action.payload.movie),
+					// ...state.lists,
+				],
+			};
 		default:
 			return state;
 	}
